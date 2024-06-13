@@ -418,7 +418,7 @@ HRESULT CreatePeriodicFFBEffect(LPCSTR guidInstance, Effects::Type effectType) {
 
     if (device == nullptr) return E_FAIL;
 
-    DIPERIODIC pe = { 10000, 0, 1000, 20000 }; // Parameters for periodic effect
+    DIPERIODIC pe = { 0, 0, 0, 0 }; // Parameters for periodic effect
 
     DIEFFECT effect;
     ZeroMemory(&effect, sizeof(effect));
