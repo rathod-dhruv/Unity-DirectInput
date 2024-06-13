@@ -34,12 +34,13 @@ namespace DirectInputManager {
     [DllImport(DLLFile)] public static extern int CreateFFBEffect(string guidInstance, FFBEffects effectType);
     [DllImport(DLLFile)] public static extern int DestroyFFBEffect(string guidInstance, FFBEffects effectType);
     [DllImport(DLLFile)] public static extern int UpdateFFBEffect(string guidInstance, FFBEffects effectType, DICondition[] conditions);
-    ///CUSTOM START
+    
+    ///////////CUSTOM CODE START --- DHRUV RATHOD @RATHOD-DHRUV
     [DllImport(DLLFile, CallingConvention = CallingConvention.Cdecl)] public static extern int CreatePeriodicFFBEffect(string guidInstance, FFBEffects effectType);
     [DllImport(DLLFile,CallingConvention = CallingConvention.Cdecl)] public static extern int DestroyPeriodicFFBEffect(string guidInstance);
     [DllImport(DLLFile,CallingConvention = CallingConvention.Cdecl)] public static extern int UpdatePeriodicFFBEffect(string guidInstance, FFBEffects effectType, int magnitude, int duration);
 
-    //CUSTOM END
+    ///////////CUSTOM CODE END --- DHRUV RATHOD @RATHOD-DHRUV
     [DllImport(DLLFile)] public static extern int StopAllFFBEffects(string guidInstance);
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)] public delegate void DeviceChangeCallback(DBTEvents DBTEvent);
@@ -769,7 +770,7 @@ namespace DirectInputManager {
     public static bool UpdateInertiaSimple(DeviceInfo device, int Magnitude) => UpdateInertiaSimple(device.guidInstance, Magnitude);
     
     
-    
+    ///////////CUSTOM CODE START --- DHRUV RATHOD @RATHOD-DHRUV
     
     public static bool EnablePeroidicFFBEffect(DeviceInfo device, FFBEffects effectType) => EnablePeroidicFFBEffect(device.guidInstance, effectType );
     public static bool EnablePeroidicFFBEffect(string guidInstance, FFBEffects effectType) {
@@ -795,6 +796,10 @@ namespace DirectInputManager {
       if (hresult != 0) { DebugLog($"UpdatePeroidic FFBEffect Failed: 0x{hresult.ToString("x")} {WinErrors.GetSystemMessage(hresult)}"); return false; }
       return true;
     }
+    
+    
+    
+    ///////////CUSTOM CODE END --- DHRUV RATHOD @RATHOD-DHRUV
 
   } // End of DIManager
 

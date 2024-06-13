@@ -18,8 +18,6 @@ namespace DirectInputManager {
     Inertia = 9,
     Friction = 10,
     CustomForce = 11,
-    Bump = 12,
-    EngineVibration = 13
     }
 
   /// <summary>

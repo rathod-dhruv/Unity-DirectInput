@@ -98,11 +98,11 @@ extern "C" { // Everything to be made available by the DLL
   DIRECTINPUTFORCEFEEDBACK_API HRESULT              UpdateFFBEffect(LPCSTR guidInstance, Effects::Type effectType, DICONDITION* conditions);
   DIRECTINPUTFORCEFEEDBACK_API HRESULT              StopAllFFBEffects(LPCSTR guidInstance);
 
-  //Addiotion by Dhruv
+  ///////////CUSTOM CODE START --- DHRUV RATHOD @RATHOD-DHRUV
   DIRECTINPUTFORCEFEEDBACK_API HRESULT CreatePeriodicFFBEffect(LPCSTR guidInstance, Effects::Type effectType);
   DIRECTINPUTFORCEFEEDBACK_API HRESULT DestroyPeriodicFFBEffect(LPCSTR guidInstance);
   DIRECTINPUTFORCEFEEDBACK_API HRESULT UpdatePeriodicFFBEffect(LPCSTR guidInstance, Effects::Type effectType, int magnitude, int duration);
-
+  ///////////CUSTOM CODE END --- DHRUV RATHOD @RATHOD-DHRUV
 
   typedef void(__stdcall* DeviceChangeCallback)(int);
   DIRECTINPUTFORCEFEEDBACK_API void                 SetDeviceChangeCallback(DeviceChangeCallback CB);
