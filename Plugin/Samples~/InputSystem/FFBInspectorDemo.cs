@@ -67,7 +67,6 @@ public class FFBInspectorDemo : MonoBehaviour {
       DIManager.EnableFFBEffect(ISDevice.description.serial, FFBEffects.Friction);
       DIManager.EnableFFBEffect(ISDevice.description.serial, FFBEffects.Inertia);
       DIManager.EnableFFBEffect(ISDevice.description.serial, FFBEffects.Spring);
-      DIManager.EnableFFBEffect(ISDevice.description.serial, FFBEffects.Sine);
 
       DIManager.EnablePeroidicFFBEffect(ISDevice.description.serial, PeroidicFFBEffect);
       
@@ -96,6 +95,7 @@ public class FFBInspectorDemo : MonoBehaviour {
 	void OnDestroy(){
     if(ISDevice != null){
       DIManager.StopAllFFBEffects(ISDevice.description.serial);
+      DIManager.DestroyPeroidicFFBEffect(ISDevice.description.serial);
     }
   }
 }
