@@ -1,4 +1,4 @@
-﻿#pragma warning disable CS0618 // Disable Marshalling warnings
+#pragma warning disable CS0618 // Disable Marshalling warnings
 
 using System;
 using System.Collections.Generic;
@@ -787,11 +787,11 @@ namespace DirectInputManager {
 
     
     
-    public static bool UpdatePeroidEffect(DeviceInfo device, FFBEffects effectType, int Magnitude) => UpdatePeroidEffect(device.guidInstance,effectType, Magnitude);
+    public static bool UpdatePeroidEffect(DeviceInfo device, FFBEffects effectType, int Magnitude, int duration = 100000) => UpdatePeroidEffect(device.guidInstance,effectType, Magnitude, duration);
     
-    public static bool UpdatePeroidEffect(string guidInstance, FFBEffects effectType, int Magnitude) {
+    public static bool UpdatePeroidEffect(string guidInstance, FFBEffects effectType, int Magnitude, int duration = 100000) {
      
-      int hresult = Native.UpdatePeriodicFFBEffect(guidInstance, FFBEffects.Inertia, Magnitude, 100000);
+      int hresult = Native.UpdatePeriodicFFBEffect(guidInstance, effectType, Magnitude, duration);
       if (hresult != 0) { DebugLog($"UpdatePeroidic FFBEffect Failed: 0x{hresult.ToString("x")} {WinErrors.GetSystemMessage(hresult)}"); return false; }
       return true;
     }
