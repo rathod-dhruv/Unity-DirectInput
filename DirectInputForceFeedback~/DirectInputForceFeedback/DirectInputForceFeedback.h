@@ -73,8 +73,6 @@ extern "C" { // Everything to be made available by the DLL
       Inertia = 9,
       Friction = 10,
       CustomForce = 11,
-      Bump = 12,
-      Steering_Vibration = 13,
     };
   };
 
